@@ -41,6 +41,10 @@ function Landing() {
         <Link className="button" to="/start">Börja här!</Link>
         </div>
       </section>
+      <footer className="region">
+        <p>Tack till <span className="tertiary">Te23</span> för test av sidan!</p>
+      </footer>
+
     </main>
   )
 }

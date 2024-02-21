@@ -10,11 +10,11 @@ function Webb() {
     () => {
       const jsConfetti = new JSConfetti();
       const params = new URLSearchParams(location.search);
-      const name = params.get('name');
+      const name = params.get('namn');
       if (name && name.length > 2 && /^[a-zA-Z]+$/.test(name)) {
         jsConfetti.addConfetti();
         setTimeout(() => {
-          navigate('/end?name=' + name, { replace: true });
+          navigate('/end?namn=' + name, { replace: true });
         }, 3000);
       }
     }, [location, navigate]);

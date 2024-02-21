@@ -9,7 +9,7 @@ function Win() {
   useEffect(() => {
     const jsConfetti = new JSConfetti()
     const params = new URLSearchParams(location.search);
-    const name = params.get('name');
+    const name = params.get('namn');
     if (name && name.length > 2 && /^[a-zA-Z]+$/.test(name)) {
       jsConfetti.addConfetti();
       setName(name);
