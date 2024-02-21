@@ -17,16 +17,16 @@ function Start() {
     }
   }, []);
 
-  useEffect(() => {
-    if (!consent && countdown > 0) {
-      const timer = setTimeout(() => {
-        setCountdown(countdown - 1);
-      }, 1000);
-      return () => clearTimeout(timer)
-    } else if (!consent && countdown === 0) {
-      navigate('/', { replace: true })
-    }
-  }, [consent, countdown, navigate])
+  // useEffect(() => {
+  //   if (!consent && countdown > 0) {
+  //     const timer = setTimeout(() => {
+  //       setCountdown(countdown - 1);
+  //     }, 1000);
+  //     return () => clearTimeout(timer)
+  //   } else if (!consent && countdown === 0) {
+  //     navigate('/', { replace: true })
+  //   }
+  // }, [consent, countdown, navigate])
 
   const handleButtonClick = () => {
     const newCount = count + 1;
@@ -48,8 +48,7 @@ function Start() {
   return (
     <main className="wrapper">
       <header className="hero region flow">
-      <div className="intro">
-  
+        <div className="intro">
         </div>
         <h1>Start</h1>
         <p>Nu kör vi!</p>
@@ -71,17 +70,18 @@ function Start() {
             className={colorText ? 'stealth red' : 'stealth'}
             onClick={handleButtonClick}>dold</button> länk till en URL som tar
           dig vidare till nästa sida, kan du hitta den?</p>
-        {!consent &&
-          <div className="cookies">
-            <div className="region flow">
-              <h2>Kakorna, du glömde kakorna!</h2>
-            </div>
-            <img src="./cookies.png" alt="Monster som mumsar kaka." />
-          </div>
-        }
       </section>
       <div id="modal" className={countdown !== 5 ? 'modal' : 'hidden'}>
-        <h2 className="red">{countdown}</h2></div>
+        <h2 className="red">{countdown}</h2>
+      </div>
+      {!consent &&
+        <div className="cookies">
+          <div className="region flow">
+            <h2>Kakorna, du glömde kakorna!</h2>
+          </div>
+          <img src="./cookies.png" alt="Monster som mumsar kaka." />
+        </div>
+      }
     </main>
   );
 }

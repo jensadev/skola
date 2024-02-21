@@ -165,9 +165,13 @@ p {
   border-radius: 8px;
 
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-areas: "stack";
 
   overflow: hidden;
+}
+
+.cookies > * {
+  grid-area: stack;
 }
 
 .cookies:hover {
@@ -175,10 +179,10 @@ p {
 }
 
 .cookies > img {
-  height: 40vh;
+  height: 50vh;
   width: auto;
   position: absolute;
-  right: -160px;
+  right: -15vmax;
   z-index: -1;
 }
 
@@ -239,3 +243,31 @@ p {
   display: grid;
   place-items: center;
 }
+
+.kemi {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.kemi > * {
+  padding: var(--space-s);
+}
+
+.box {
+  display: grid;
+  place-items: center;
+}
+
+.drag {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+}
+
+#dropzone {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
