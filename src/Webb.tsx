@@ -41,11 +41,11 @@ function Webb() {
         <p>En query parameter är något som står i en URL, efter webbsidans adress.
           Det börjar med ett frågetecken och sedan kommer det en nyckel och ett värde.
         </p>
-        <p>Det kan se ut såhär: <code>https://www.example.com/?nyckel=värde</code></p>
+        <p>Det kan se ut såhär: <code>https://example.com/index<span className="secondary">?nyckel=värde</span></code></p>
         <p>Du känner säkert igen det från till
-          exempel <a href="https://www.youtube.com/">youtube</a>, där det visar
+          exempel <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">youtube</a>, där det visar
           vilket klipp du tittar på.</p>
-        <h3>Skriv <span className="parimry">din egen</span> query parameter!</h3>
+        <h3>Skriv <span className="primary">din egen</span> query parameter!</h3>
         <p>Du behöver nu redigera addressen på den här sidan så att den har en
           query parameter som heter <code>namn</code> och har värdet <code>ditt namn</code>.
         </p>

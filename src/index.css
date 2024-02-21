@@ -58,6 +58,10 @@ a:hover {
   color: #535bf2;
 }
 
+code {
+  font-size: var(--step-0);
+}
+
 body {
   font-size: var(--step-1);
   line-height: 1.5;
@@ -67,12 +71,12 @@ body {
 h1, h2, h3, h4 {
   line-height: 1;
   font-weight: 700;
-  word-break: break-all;
   text-wrap: stable; 
 }
 
 h1 {
   font-size: var(--step-5);
+  word-wrap: break-word;
 }
 
 h2 {

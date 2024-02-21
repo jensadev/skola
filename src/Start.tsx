@@ -48,7 +48,9 @@ function Start() {
           <button
             className={colorText ? 'stealth red' : 'stealth'}
             onClick={handleButtonClick}>dold</button> länk till en URL som tar
-          dig vidare till nästa sida, kan du hitta den?</p>
+          dig vidare till <button
+            className={colorText ? 'stealth red' : 'stealth'}
+            onClick={handleButtonClick}>nästa sida</button>, kan du hitta den?</p>
       </section>
     </main>
   );
