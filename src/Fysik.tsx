@@ -18,6 +18,8 @@ function Fysik(props: {
         navigate('/webbutveckling');
       }, 3000);
     } else {
+      const wrongCount = localStorage.getItem('fysikQuestion') || '0'
+      localStorage.setItem('fysikQuestion', (parseInt(wrongCount) + 1).toString());
       setColor(true)
       setTimeout(() => setColor(false), 1000)
     }

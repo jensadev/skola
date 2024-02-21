@@ -18,6 +18,8 @@ function Matematik(props: {
         navigate('/programmering')
       }, 3000);
     } else {
+      const wrongCount = localStorage.getItem('matteQuestion') || '0'
+      localStorage.setItem('matteQuestion', (parseInt(wrongCount) + 1).toString());
       setColor(true)
       setTimeout(() => setColor(false), 1000)
     }

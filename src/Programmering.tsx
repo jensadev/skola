@@ -17,6 +17,8 @@ function Programmering(props: {
         navigate('/fysik')
       }, 3000);
     } else {
+      const wrongCount = localStorage.getItem('programmeringQuestion') || '0'
+      localStorage.setItem('programmeringQuestion', (parseInt(wrongCount) + 1).toString());
       setColor(true)
       setTimeout(() => setColor(false), 1000)
     }

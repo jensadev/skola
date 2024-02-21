@@ -14,6 +14,9 @@ function Win(props: {
     if (name && name.length > 2 && /^[a-zA-Z]+$/.test(name)) {
       props.triggerConfetti({ emojis: ['🦄'], confettiRadius: 100, confettiNumber: 30, emojiSize: 100 })
       setName(name);
+
+      const timestamp = new Date().getTime();
+      localStorage.setItem('endTimestamp', timestamp.toString());
     }
 
     const intervalId = setInterval(() => {

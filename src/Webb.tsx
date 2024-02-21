@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function Webb(props: { 
-  triggerConfetti: () => void, 
+  triggerConfetti: (options?: object) => void,
   triggerTransition: () => void }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,6 +17,10 @@ function Webb(props: {
         setTimeout(() => {
           navigate('/end?namn=' + name)
         }, 3000);
+      } else {
+        const wrongCount = localStorage.getItem('webbQuestion') || '0'
+        localStorage.setItem('webbQuestion', (parseInt(wrongCount) + 1).toString());
+        props.triggerConfetti({ emojis: ['👿', '😭', '😡'], confettiRadius: 40, confettiNumber: 1, emojiSize: 100 })
       }
     }, [location, navigate, props]);
 
