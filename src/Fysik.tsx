@@ -1,19 +1,25 @@
 import { useNavigate } from 'react-router-dom'
-import JSConfetti from 'js-confetti'
 import { useState } from 'react'
 import torget from './assets/torget.png'
 
-function Fysik() {
+function Fysik(props: {
+  triggerConfetti: () => void,
+  triggerTransition: () => void
+}) {
   const navigate = useNavigate()
-  const jsConfetti = new JSConfetti()
   const [distance, setDistance] = useState(0)
+  const [color, setColor] = useState(false)
 
   const handleClick = () => {
     if (distance === 68) {
-      jsConfetti.addConfetti();
+      props.triggerTransition()
+      props.triggerConfetti()
       setTimeout(() => {
-        navigate('/webbutveckling', { replace: true });
+        navigate('/webbutveckling');
       }, 3000);
+    } else {
+      setColor(true)
+      setTimeout(() => setColor(false), 1000)
     }
   };
 
@@ -45,8 +51,10 @@ function Fysik() {
           </span>.</p>
         <div className="flow">
           <label htmlFor='distance'>Hur många meter är det mellan Rådhuset och skolan?</label>
-          <input id="distance" name="distance" type="number" value={distance} onChange={(e) => setDistance(Number(e.target.value))} />
-          <button onClick={handleClick}>Gissa</button>
+          <input id="distance" name="distance" type="number" placeholder="00" onChange={(e) => setDistance(Number(e.target.value))} />
+          <button
+            className={color ? 'button red' : 'button'}
+            onClick={handleClick}>Gissa</button>
         </div>
       </section>
     </main>

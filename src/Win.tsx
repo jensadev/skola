@@ -1,28 +1,29 @@
-import JSConfetti from 'js-confetti'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
-function Win() {
+function Win(props: {
+  triggerConfetti: (options?: object) => void,
+  triggerTransition: () => void
+}) {
   const location = useLocation();
   const [name, setName] = useState('');
 
   useEffect(() => {
-    const jsConfetti = new JSConfetti()
     const params = new URLSearchParams(location.search);
     const name = params.get('namn');
     if (name && name.length > 2 && /^[a-zA-Z]+$/.test(name)) {
-      jsConfetti.addConfetti();
+      props.triggerConfetti({ emojis: ['🦄'], confettiRadius: 100, confettiNumber: 30, emojiSize: 100 })
       setName(name);
     }
 
     const intervalId = setInterval(() => {
-      jsConfetti.addConfetti();
+      props.triggerConfetti({ emojis: ['🦄'], confettiRadius: 100, confettiNumber: 30 })
     }, 5000);
 
     return () => {
       clearInterval(intervalId);
     };
-  }, [location]);
+  }, [location, props]);
 
 
   return <main className='wrapper'>The end for {name}!</main>;

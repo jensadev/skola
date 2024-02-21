@@ -326,3 +326,20 @@ p {
   filter: grayscale(100%);
   width: 100%;
 }
+
+.overlay {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: grid;
+  place-items: center;
+}
+
+.kemi-list {
+  list-style: none;
+  font-size: var(--step-2);
+}

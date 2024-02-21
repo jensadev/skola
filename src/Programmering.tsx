@@ -1,18 +1,24 @@
 import { useNavigate } from 'react-router-dom'
-import JSConfetti from 'js-confetti';
-import { useState } from 'react';
+import { useState } from 'react'
 
-function Programmering() {
+function Programmering(props: {
+  triggerConfetti: () => void,
+  triggerTransition: () => void
+}) {
   const navigate = useNavigate()
-  const jsConfetti = new JSConfetti()
   const [number, setNumber] = useState(0);
+  const [color, setColor] = useState(false)
 
   const handleClick = () => {
     if (number === 9) {
-      jsConfetti.addConfetti();
+      props.triggerTransition()
+      props.triggerConfetti()
       setTimeout(() => {
-        navigate('/fysik', { replace: true });
+        navigate('/fysik')
       }, 3000);
+    } else {
+      setColor(true)
+      setTimeout(() => setColor(false), 1000)
     }
   };
 
@@ -44,15 +50,21 @@ for (let i = 0; i < 10; i++) {
           </code>
         </pre>
         <div className="center">
-          <h2>Vad har final för värde när loopen är färdig?</h2>
+          <p>Vad har final för <span className="tertiary">värde</span> när loopen är färdig?</p>
         </div>
         <div className="buttonControls">
           <div className="numButtons">
-            <button className="button" onClick={() => setNumber(number - 1)}>-</button>
-            <span>{number} centimeter</span>
-            <button className="button" onClick={() => setNumber(number + 1)}>+</button>
+            <button className="button" onClick={() => setNumber(number - 1)}><span className="material-symbols-outlined">
+              remove
+            </span></button>
+            <span className='tertiary'>{number}</span>
+            <button className="button" onClick={() => setNumber(number + 1)}><span className="material-symbols-outlined">
+              add
+            </span></button>
           </div>
-          <button className="button" onClick={handleClick}>Gissa</button>
+          <button
+            className={color ? 'button red' : 'button'}
+            onClick={handleClick}>Gissa</button>
         </div>
       </section>
     </main>
