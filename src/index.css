@@ -211,8 +211,15 @@ p {
 
 .stealth {
   color: currentColor;
+  background-color: transparent;
+  border: none;
+  cursor: text;
 }
 
 .stealth:hover {
   color: currentColor;
+}
+
+.red {
+  color: #ff4d4d;
 }

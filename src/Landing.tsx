@@ -19,7 +19,7 @@ function Landing() {
     const newCount = count + 1;
     setCount(newCount);
     setChecked(!checked);
-    localStorage.setItem('clicks', newCount.toString());
+    localStorage.setItem('landingClicks', newCount.toString());
   };
   const handleButtonClick = () => {
     setConsent(true);
