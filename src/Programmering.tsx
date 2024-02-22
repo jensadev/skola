@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import JSConfetti from 'js-confetti';
-import codeimg from './assets/code.webp'
 import { useState } from 'react';
 
 function Programmering() {
