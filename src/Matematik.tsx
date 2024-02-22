@@ -11,7 +11,7 @@ function Matematik() {
     if (number === 6) {
       jsConfetti.addConfetti();
       setTimeout(() => {
-        navigate('/fysik', { replace: true });
+        navigate('/programmering', { replace: true });
       }, 3000);
     }
   };
