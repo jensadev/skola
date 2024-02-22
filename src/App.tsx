@@ -33,7 +33,7 @@ function App() {
         <Route path="matematik" element={<Matematik />} />
         <Route path="programmering" element={<Programmering />} />
         <Route path="webbutveckling" element={<Webb />} />
-        <Route path="finish" element={<Win />} />
+        <Route path="end" element={<Win />} />
         <Route path="fysik" element={<Fysik />} />
       </Routes>
       {!consent && (

@@ -55,8 +55,6 @@ for (let i = 0; i < 10; i++) {
           <button className="button" onClick={handleClick}>Gissa</button>
         </div>
       </section>
-      {/* <div id="modal" className={countdown !== 5 ? 'modal' : 'hidden'}>
-        <h2 className="red">{countdown}</h2></div> */}
     </main>
   )
 }

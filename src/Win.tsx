@@ -1,15 +1,31 @@
 import JSConfetti from 'js-confetti'
+import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 function Win() {
-  const jsConfetti = new JSConfetti()
+  const location = useLocation();
+  const [name, setName] = useState('');
 
-  const handleButtonClick = () => {
-    jsConfetti.addConfetti()
-  }
+  useEffect(() => {
+    const jsConfetti = new JSConfetti()
+    const params = new URLSearchParams(location.search);
+    const name = params.get('name');
+    if (name && name.length > 2 && /^[a-zA-Z]+$/.test(name)) {
+      jsConfetti.addConfetti();
+      setName(name);
+    }
 
-  return <div>Finish
-    <button className="button" onClick={handleButtonClick}>Konfetti</button>
-  </div>;
+    const intervalId = setInterval(() => {
+      jsConfetti.addConfetti();
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [location]);
+
+
+  return <main className='wrapper'>The end for {name}!</main>;
 }
 
 export default Win
