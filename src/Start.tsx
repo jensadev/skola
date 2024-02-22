@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import JSConfetti from 'js-confetti';
+import JSConfetti from 'js-confetti'
 
 function Start() {
   const [count, setCount] = useState(0)

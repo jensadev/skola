@@ -43,9 +43,9 @@ function Landing() {
         <p>Det här är en webbsida skapad för att du ska få testa lite vad vi gör på teknikprogrammet.</p>
         <p>Sidan består av ett antal utmaningar där du behöver klara dem för att komma vidare.</p>
         <div className="center-bounce region">
-        <span className="material-symbols-outlined">
-          arrow_downward
-        </span>
+          <span className="material-symbols-outlined">
+            arrow_downward
+          </span>
         </div>
         <div className="center">
         <Link className="button" to="/start">Börja här!</Link>
