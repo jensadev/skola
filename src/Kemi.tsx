@@ -21,15 +21,15 @@ function Kemi() {
         <div className="intro">
           Snyggt jobbat, nu är det dags för lite
         </div>
-        <h1>Kemi</h1>
+        <h1 className='secondary'>Kemi</h1>
         <p>På teknikprogrammet läser du kursen Kemi 1 i årskurs ett.</p>
       </header>
       <section className="region flow">
-        <h2>Förbränning av organiska föreningar</h2>
+        <h2>Förbränning av <span className="primary">organiska föreningar</span></h2>
         <p>Vad ger förbränningen av organiska föreningar huvudsakligen?</p>
         <div className="kemi">
           <div className="center">
-          Kolväte + Syre
+          <h2>Kolväte + Syre</h2>
           </div>
           <div className="center-bounce region">
           <span className="material-symbols-outlined">

@@ -22,7 +22,7 @@ function Programmering() {
         <div className="intro">
           Snyggt jobbat, nu är det dags för lite
         </div>
-        <h1>Programmering</h1>
+        <h1 className='tertiary'>Programmering</h1>
         <p>Vi gillar att skapa på teknikprogrammet och kod är ett av de verktyg
           du får lära dig.
         </p>
@@ -30,9 +30,11 @@ function Programmering() {
       <section className="region flow">
         <h2>Upprening, eller iteration</h2>
         <p>Att kunna upprepa något ett visst antal gånger är en av grunderna i
-          programmering. Det är så användbart i allt (upprepa vadsomhelst X gånger, gå igenom en lista, räkna upp, och ned (inte upp och ned)).
+          programmering. Det är så användbart i allt (upprepa vadsomhelst X gånger,
+          gå igenom en lista, räkna upp, och ned (inte upp och ned)).
         </p>
-        <p>Här nedan är ett exempel på en for loop. Det finns även en variabel med namnet final. Vad har final för värde när loopen är färdig?</p>
+        <p>Här nedan är ett exempel på en for loop. Det finns även en variabel med
+          namnet final.</p>
         <pre>
           <code>
             {`let final
@@ -41,11 +43,17 @@ for (let i = 0; i < 10; i++) {
 }`}
           </code>
         </pre>
-        <button onClick={() => setNumber(number - 1)}>-</button>
-        <span>{number}</span>
-        <button onClick={() => setNumber(number + 1)}>+</button>
-        <button onClick={handleClick}>Submit</button>
-
+        <div className="center">
+          <h2>Vad har final för värde när loopen är färdig?</h2>
+        </div>
+        <div className="buttonControls">
+          <div className="numButtons">
+            <button className="button" onClick={() => setNumber(number - 1)}>-</button>
+            <span>{number} centimeter</span>
+            <button className="button" onClick={() => setNumber(number + 1)}>+</button>
+          </div>
+          <button className="button" onClick={handleClick}>Gissa</button>
+        </div>
       </section>
       {/* <div id="modal" className={countdown !== 5 ? 'modal' : 'hidden'}>
         <h2 className="red">{countdown}</h2></div> */}

@@ -67,8 +67,8 @@ body {
 h1, h2, h3, h4 {
   line-height: 1;
   font-weight: 700;
-  max-width: 20ch;
-  line-break: anywhere;
+  word-break: break-all;
+  text-wrap: stable; 
 }
 
 h1 {
@@ -279,3 +279,46 @@ p {
   grid-row-end: 3;
 }
 
+.primary {
+  color: hsl(258, 97%, 75%);
+}
+
+.secondary {
+  color: hsl(184, 60%, 58%);
+}
+
+.tertiary {
+  color: hsl(303, 72%, 71%);
+}
+
+.buttonControls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.numButtons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.numButtons span {
+  font-size: var(--step-2);
+}
+
+.spoiler {
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.spoiler:hover {
+  color: inherit;
+  text-shadow: none;
+}
+
+.torg {
+  filter: grayscale(100%);
+  width: 100%;
+}
