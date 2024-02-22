@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 function Matematik() {
   const [answer, setAnswer] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const inputRef = useRef();
 
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     if (inputValue === 'correct') {
       setAnswer('correct');
@@ -39,7 +35,6 @@ function Matematik() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          ref={inputRef}
           value={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
         />

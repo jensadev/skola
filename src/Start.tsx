@@ -5,7 +5,7 @@ import JSConfetti from 'js-confetti'
 function Start() {
   const [count, setCount] = useState(0)
   const [consent, setConsent] = useState(false)
-  const [countdown, setCountdown] = useState(5)
+  // const [countdown, setCountdown] = useState(5)
   const navigate = useNavigate()
   const [colorText, setColorText] = useState(false)
   const jsConfetti = new JSConfetti()
@@ -71,9 +71,9 @@ function Start() {
             onClick={handleButtonClick}>dold</button> länk till en URL som tar
           dig vidare till nästa sida, kan du hitta den?</p>
       </section>
-      <div id="modal" className={countdown !== 5 ? 'modal' : 'hidden'}>
+      {/* <div id="modal" className={countdown !== 5 ? 'modal' : 'hidden'}>
         <h2 className="red">{countdown}</h2>
-      </div>
+      </div> */}
       {!consent &&
         <div className="cookies">
           <div className="region flow">

@@ -5,9 +5,9 @@ function Kemi() {
   const navigate = useNavigate()
   const jsConfetti = new JSConfetti()
 
-  const handleClick = (event) => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     const correctAnswer = 'Energi + Koldioxid + Vatten';
-    if (event.target.innerText === correctAnswer) {
+    if ((event.target as HTMLElement).innerText === correctAnswer) {
       jsConfetti.addConfetti()
       setTimeout(() => {
         navigate('/matematik', { replace: true })
