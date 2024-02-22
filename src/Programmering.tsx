@@ -28,7 +28,7 @@ function Programmering() {
         </p>
       </header>
       <section className="region flow">
-        <h2>Upprening, eller iteration</h2>
+        <h2>Upprepning, eller iteration</h2>
         <p>Att kunna upprepa något ett visst antal gånger är en av grunderna i
           programmering. Det är så användbart i allt (upprepa vadsomhelst X gånger,
           gå igenom en lista, räkna upp, och ned (inte upp och ned)).
