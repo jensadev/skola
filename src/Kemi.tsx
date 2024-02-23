@@ -8,6 +8,7 @@ function Kemi(props: {
   const navigate = useNavigate()
   const [colorText, setColorText] = useState(false)
   const [count, setCount] = useState(0)
+  const [shake, setShake] = useState(false);
 
   useEffect(() => {
     const clicks = localStorage.getItem('kemiClicks')
@@ -28,10 +29,14 @@ function Kemi(props: {
       localStorage.setItem('kemiTimestamp', new Date().getTime().toString())
       setTimeout(() => {
         navigate('/matematik')
-      }, 3000)
+      }, 1500)
     } else {
       setColorText(true)
-      setTimeout(() => setColorText(false), 1000)
+      setShake(true);
+      setTimeout(() => {
+        setColorText(false);
+        setShake(false);
+      }, 1000);
     }
   };
 
@@ -40,13 +45,13 @@ function Kemi(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          Snyggt jobbat, nu är det dags för lite
+          Snyggt jobbat, nu har turen kommit till
         </div>
         <h1 className='secondary'>Kemi</h1>
         <p>På teknikprogrammet läser du kursen Kemi i årskurs ett. Syftet med kursen är att du ska få en inblick om hur miljö, klimat, människa och naturens processer fungerar.</p>
       </header>
-      <section className="region flow">
-        <h2>Förbränning <span className="material-symbols-outlined tertiary">local_fire_department</span> av<span className="primary"> organiska föreningar</span></h2>
+      <section className={`region flow ${shake ? 'shake' : ''}`}>
+        <h2>Förbränning <span className="material-symbols-outlined tertiary">local_fire_department</span> av<span className="primary"> organiska </span>föreningar</h2>
         <p>Vad ger förbränningen av organiska föreningar huvudsakligen?</p>
         <div className="kemi">
           <ul className='kemi-list center'>

@@ -10,6 +10,7 @@ function Matematik(props: {
   const [number, setNumber] = useState(0)
   const [color, setColor] = useState(false)
   const [count, setCount] = useState(0)
+  const [shake, setShake] = useState(false);
 
   useEffect(() => {
     const clicks = localStorage.getItem('matteClicks')
@@ -28,10 +29,14 @@ function Matematik(props: {
       localStorage.setItem('matteTimestamp', new Date().getTime().toString())
       setTimeout(() => {
         navigate('/programmering')
-      }, 3000);
+      }, 1500);
     } else {
       setColor(true)
-      setTimeout(() => setColor(false), 1000)
+      setShake(true);
+      setTimeout(() => {
+        setColor(false);
+        setShake(false);
+      }, 1000);
     }
   };
 
@@ -41,17 +46,17 @@ function Matematik(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          Det tar sig sa...
+          <p>Det här går som en dans, och nu blir det</p>
         </div>
         <h1>Matematik</h1>
         <p>Det är en fördel om du åtminstone tycker att matematik är okej när du läser
           teknikprogrammet. Det går nog till och med att säga att det är bra om
           du gillar matematik.</p>
-        <p>Teknikprogrammet innehåller nämligen minst tre kurser
+        <p>Teknikprogrammet innehåller nämligen minst <span className="tertiary">tre</span> kurser
           i matematik. </p>
       </header>
-      <section className="region flow">
-        <h2>Kvadrater och area</h2>
+      <section className={`region flow ${shake ? 'shake' : ''}`}>
+        <h2><span className="secondary">Kvadrater</span> och area</h2>
         <p>Nu har du din chans att briljera och visa att du hängt med på matten.</p>
         <p>Tämligen ofta så behöver du kunna räkna ut något okänt, i det här fallet
           sidan på en kvadrat. Till din hjälp känner du till arean på kvadraten.</p>

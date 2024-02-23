@@ -16,7 +16,10 @@ function Win(props: {
       props.triggerConfetti({ emojis: ['🦄'], confettiRadius: 100, confettiNumber: 30, emojiSize: 100 })
       setName(name);
 
-      if (!localStorage.getItem('endTimestamp')) {
+      const endTimestamp = Number(localStorage.getItem('endTimestamp'));
+      const startTimestamp = Number(localStorage.getItem('startTimestamp'));
+      
+      if (!endTimestamp || endTimestamp < startTimestamp) {
         const timestamp = new Date().getTime();
         localStorage.setItem('endTimestamp', timestamp.toString());
       }
@@ -59,7 +62,8 @@ function Win(props: {
     webb: {
       guesses: parseInt(localStorage.getItem('webbClicks') || '0'),
       timestamp: localStorage.getItem('webbTimestamp') || '0'
-    }
+    },
+    landingClicks: parseInt(localStorage.getItem('landingClicks') || '0')
   }
 
 
@@ -68,23 +72,26 @@ function Win(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          Du gjorde det!
+          <p>Du är en stjärna ⭐</p>
         </div>
-        <h1>Grattis <span className="primary name">{scoreCard.name}</span></h1>
-        <p>På riktigt, bra jobbat, du förtjänar enhörningar.</p>
+        <h1>Grattis <span className="primary name">{scoreCard.name}</span>!</h1>
+        <p>På riktigt, bra jobbat, du förtjänar enhörningar 🦄</p>
       </header>
       <section className="region flow">
         <h2 className='tertiary'>Så hur gick det för dig?</h2>
-        <ul className='scorecard'>
-          <li>Du började: {new Date(parseInt(scoreCard.startTime)).toLocaleString()}</li>
-          <li>och gick i mål: {new Date(parseInt(scoreCard.endTime)).toLocaleString()}</li>
-          <li>Det tog dig: {Math.round(scoreCard.completionTime)} sekunder eller {Math.round(scoreCard.completionTime / 60)} minuter</li>
-          <li className={scoreCard.start.timestamp ? 'green' : 'red'}>Antal gissningar på start: {scoreCard.start.guesses}</li>
-          <li className={scoreCard.kemi.timestamp ? 'green' : 'red'}>Antal gissningar på kemi: {scoreCard.kemi.guesses}</li>
-          <li className={scoreCard.matte.timestamp ? 'green' : 'red'}>Antal gissningar på matte: {scoreCard.matte.guesses}</li>
-          <li className={scoreCard.programmering.timestamp ? 'green' : 'red'}>Antal gissningar på programmering: {scoreCard.programmering.guesses}</li>
-          <li className={scoreCard.fysik.timestamp ? 'green' : 'red'}>Antal gissningar på fysik: {scoreCard.fysik.guesses}</li>
-          <li className={scoreCard.webb.timestamp ? 'green' : 'red'}>Antal gissningar på webb: {scoreCard.webb.guesses}</li>
+        <ul className='scorecard flow'>
+          {+scoreCard.start.timestamp > 0 && +scoreCard.kemi.timestamp > 0 && +scoreCard.matte.timestamp > 0 && +scoreCard.programmering.timestamp > 0 && +scoreCard.fysik.timestamp > 0 && +scoreCard.webb.timestamp > 0 ?
+            <>
+              <li>Du började <span className="primary">{new Intl.DateTimeFormat('sv-SE', { hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(parseInt(scoreCard.startTime)))}</span> och gick i mål <span className="secondary">{new Intl.DateTimeFormat('sv-SE', { hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(parseInt(scoreCard.endTime)))}</span>.</li>
+              <li>Det tog dig <span className="tertiary">{Math.round(scoreCard.completionTime)}</span> sekunder eller <span className="tertiary">{Math.round(scoreCard.completionTime / 60)}</span> minuter.</li>
+              <li>Det tog dig <span className="green">{scoreCard.start.guesses}</span> försök att hitta den dolda länken.</li>
+              <li>Du gissade <span className="green">{scoreCard.kemi.guesses}</span> gånger på olika förbränningar.</li>
+              <li>När det kommer till matten så tog det dig <span className="green">{scoreCard.matte.guesses}</span> gissningar innan du prickade rätt.</li>
+              <li>Det där med iteration kan vara svårt, men det tog dig <span className="green">{scoreCard.programmering.guesses}</span> gissningar att komma på det.</li>
+              <li>De flesta reser inte dubbla sträckan bara för nöjes skull, som ekot. Du behövde <span className="green">{scoreCard.fysik.guesses}</span> försök för att studsa rätt.</li>
+              <li >Den här sista var riktigt klurig, du behövde <span className="green">{scoreCard.webb.guesses}</span> försök för att skriva en korrekt query parameter.</li>
+              <li>Du klickade också checkboxen på startsidan <span className="green">{scoreCard.landingClicks}</span> gånger {scoreCard.landingClicks > 0 ? ', oklart varför' : ''}.</li>
+            </> : <li className='red'>Det verkar som att du inte har klarat av alla momenten, fiskigt.</li>}
         </ul>
       </section>
     </main>

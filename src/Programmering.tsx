@@ -10,6 +10,7 @@ function Programmering(props: {
   const [number, setNumber] = useState(0);
   const [color, setColor] = useState(false)
   const [count, setCount] = useState(0)
+  const [shake, setShake] = useState(false);
 
   useEffect(() => {
     const clicks = localStorage.getItem('programmeringClicks')
@@ -28,10 +29,14 @@ function Programmering(props: {
       localStorage.setItem('programmeringTimestamp', new Date().getTime().toString())
       setTimeout(() => {
         navigate('/fysik')
-      }, 3000);
+      }, 1500);
     } else {
       setColor(true)
-      setTimeout(() => setColor(false), 1000)
+      setShake(true);
+      setTimeout(() => {
+        setColor(false);
+        setShake(false);
+      }, 1000);
     }
   };
 
@@ -47,24 +52,24 @@ function Programmering(props: {
           du får lära dig.
         </p>
       </header>
-      <section className="region flow">
-        <h2>Upprepning, eller iteration</h2>
+      <section className={`region flow ${shake ? 'shake' : ''}`}>
+        <h2>Upprepning, <span className="secondary">loopa</span>, iteration</h2>
         <p>Att kunna upprepa något ett visst antal gånger är en av grunderna i
           programmering. Det är så användbart i allt (upprepa vadsomhelst X gånger,
           gå igenom en lista, räkna upp, och ned (inte upp och ned)).
         </p>
-        <p>Här nedan är ett exempel på en for loop. Det finns även en variabel med
-          namnet final.</p>
+        <p>Här nedan är ett exempel på en <span className="secondary">for-loop</span>. Innan loopen så initieras (skapas) en variabel med namnet <span className="primary">final</span>.</p>
         <pre>
           <code>
             {`let final
+
 for (let i = 0; i < 10; i++) {
   final = i
 }`}
           </code>
         </pre>
         <div className="center">
-          <p>Vad har final för <span className="tertiary">värde</span> när loopen är färdig?</p>
+          <p>Vad har <span className="primary">final</span> för <span className="tertiary">värde</span> när loopen är färdig?</p>
         </div>
         <div className="buttonControls">
           <div className="numButtons">

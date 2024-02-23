@@ -11,6 +11,7 @@ function Fysik(props: {
   const [distance, setDistance] = useState(0)
   const [color, setColor] = useState(false)
   const [count, setCount] = useState(0)
+  const [shake, setShake] = useState(false);
 
   useEffect(() => {
     const clicks = localStorage.getItem('fysikClicks')
@@ -29,10 +30,14 @@ function Fysik(props: {
       localStorage.setItem('fysikTimestamp', new Date().getTime().toString())
       setTimeout(() => {
         navigate('/webbutveckling');
-      }, 3000);
+      }, 1500);
     } else {
       setColor(true)
-      setTimeout(() => setColor(false), 1000)
+      setShake(true);
+      setTimeout(() => {
+        setColor(false);
+        setShake(false);
+      }, 1000);
     }
   };
 
@@ -48,7 +53,7 @@ function Fysik(props: {
           för hur universum fungerar och de lagar som styr det. Denna kunskap är
           avgörande för att utveckla nya tekniker och lösa tekniska problem.</p>
       </header>
-      <section className="region flow">
+      <section className={`region flow ${shake ? 'shake' : ''}`}>
         <h2>Eko och <span className="primary">avstånd</span></h2>
         <p>Traditionsenligt firar vi på NTI Gymnasiet Umeå studenten med en middag
           på resturang Rex. Resturangen ligger i Rådhuset. Rådhuset ligger på
@@ -56,10 +61,10 @@ function Fysik(props: {
         </p>
         <img className="torg" src={torget} alt="Bild på torget" />
         <p>Om du står och <strong>skriker</strong> från skolan till någon vid Rådhuset så
-          hör du ekot av ditt skrik efter cirka 0.4 sekunder
+          hör du <span className="tertiary">ekot</span> av ditt skrik efter cirka 0.4 sekunder
           (med variation på grund av temperatur och luftfuktighet).</p>
         <p>Ljudets hastighet är <span className="secondary">340 meter per sekund</span>,
-          och du hör ekot efter 0.4 sekunder, så ljudet har
+          och du hör <span className="tertiary">ekot</span> efter 0.4 sekunder, så ljudet har
           färdats <span className="spoiler">
             340 * 0.4 = 136 meter
           </span>.</p>
