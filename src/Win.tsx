@@ -93,7 +93,7 @@ function Win(props: {
               <li>Du klickade också checkboxen på startsidan <span className="green">{scoreCard.landingClicks}</span> gånger {scoreCard.landingClicks > 0 ? ', oklart varför' : ''}.</li>
             </> : <li className='red'>Det verkar som att du inte har klarat av alla momenten, fiskigt.</li>}
         </ul>
-        <p>Tack för idag, om du vill veta mer om vår skola så hittar du information på vår hemsida, <a href="https://ntigymnasiet.se/umea/" target='_blank'>NTI Gymnasiet Umeå</a>.</p>
+        <p><span className="tertiary">Tack</span> för idag, om du vill veta mer om vår skola så hittar du information på vår hemsida, <a href="https://ntigymnasiet.se/umea/" target='_blank'>NTI Gymnasiet Umeå</a>.</p>
       </section>
     </main>
   )
