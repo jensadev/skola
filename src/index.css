@@ -168,7 +168,6 @@ p {
 }
 
 .intro input[type="checkbox"] {
-  accent-color: green;
   height: var(--step-2);
   width: var(--step-2);
 }
@@ -254,6 +253,7 @@ p {
 
 .green {
   color: hsl(135, 78%, 70%);
+  accent-color: hsl(135, 78%, 70%);
 }
 
 

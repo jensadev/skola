@@ -49,7 +49,7 @@ function Programmering(props: {
         </div>
         <h1 className='tertiary'>Programmering</h1>
         <p>Vi gillar att skapa på teknikprogrammet och kod är ett av de verktyg
-          du får lära dig.
+          du får lära dig för att skapa.
         </p>
       </header>
       <section className={`region flow ${shake ? 'shake' : ''}`}>
@@ -85,6 +85,7 @@ for (let i = 0; i < 10; i++) {
             className={color ? 'button red' : 'button'}
             onClick={handleClick}>Gissa</button>
         </div>
+        <p>Tips för dig som inte har programmerat så mycket, <span className="secondary">loopen</span> styrs av ett villkor, i det här fallet när <code>i</code> är mindre än <code>10</code>.</p>
       </section>
     </main>
   )

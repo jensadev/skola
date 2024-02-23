@@ -45,7 +45,7 @@ function Kemi(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          Snyggt jobbat, nu har turen kommit till
+          Snyggt jobbat, ett ämne du känner till från åttan är
         </div>
         <h1 className='secondary'>Kemi</h1>
         <p>På teknikprogrammet läser du kursen Kemi i årskurs ett. Syftet med kursen är att du ska få en inblick om hur miljö, klimat, människa och naturens processer fungerar.</p>
@@ -58,7 +58,7 @@ function Kemi(props: {
             <li>
               Kolväte <span className="material-symbols-outlined">forest</span>
             </li>
-            <li><span className="material-symbols-outlined">add</span></li>
+            <li><span className="material-symbols-outlined tertiary">add</span></li>
             <li>Syre <span className="material-symbols-outlined">spo2</span></li>
           </ul>
           <div className="center bounce region">

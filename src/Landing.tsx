@@ -19,7 +19,7 @@ function Landing() {
             <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          <input type="checkbox" name="check" id="check" checked={checked} onChange={handleCheckboxClick} />
+          <input className="green" type="checkbox" name="check" id="check" checked={checked} onChange={handleCheckboxClick} />
           <p>Check du kan använda 
             en <span className="material-symbols-outlined primary">
               qr_code
@@ -43,7 +43,7 @@ function Landing() {
         </div>
       </section>
       <footer className="region">
-        <p>Tack till <span className="secondary">Te23</span> för test av den här sidan.</p>
+        <p>Tack till <span className="secondary">Te23</span> och <span className="tertiary">Hanna</span> för test av den här sidan.</p>
         <p>Om du är nyfiken på hur den här sidan är byggd så hittar du koden på <a href="https://github.com/jensadev/skola" target="_blank">GitHub</a>.</p>
       </footer>
 

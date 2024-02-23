@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import ScrollToTopOnMount from './components/ScrollToTopOnMount'
+import './Matematik.css'
 
 function Matematik(props: {
   triggerConfetti: () => void,
@@ -46,7 +47,7 @@ function Matematik(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          <p>Det här går som en dans, och nu blir det</p>
+          <p>Det här går som ett <span className="primary">räkneverk</span>!</p>
         </div>
         <h1>Matematik</h1>
         <p>Det är en fördel om du åtminstone tycker att matematik är okej när du läser
@@ -60,6 +61,13 @@ function Matematik(props: {
         <p>Nu har du din chans att briljera och visa att du hängt med på matten.</p>
         <p>Tämligen ofta så behöver du kunna räkna ut något okänt, i det här fallet
           sidan på en kvadrat. Till din hjälp känner du till arean på kvadraten.</p>
+
+        <div className="kvadrat-container">
+          <div className="kvadrat">
+            <span className='left'>x</span>
+            <span className='bottom'>x</span>
+          </div>
+        </div>
 
         <p>Om <span className="primary">arean</span> på kvadraten
           är <strong>36</strong> kvadratcentimeter, hur många centimeter
