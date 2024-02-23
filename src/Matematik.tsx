@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
 function Matematik(props: {
@@ -7,10 +7,21 @@ function Matematik(props: {
   triggerTransition: () => void
 }) {
   const navigate = useNavigate()
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(0)
   const [color, setColor] = useState(false)
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const clicks = localStorage.getItem('matteClicks')
+    if (clicks) {
+      setCount(parseInt(clicks))
+    }
+  }, []);
 
   const handleClick = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+    localStorage.setItem('matteClicks', newCount.toString());
     if (number === 6) {
       props.triggerTransition()
       props.triggerConfetti()
@@ -19,8 +30,6 @@ function Matematik(props: {
         navigate('/programmering')
       }, 3000);
     } else {
-      const wrongCount = localStorage.getItem('matteQuestion') || '0'
-      localStorage.setItem('matteQuestion', (parseInt(wrongCount) + 1).toString());
       setColor(true)
       setTimeout(() => setColor(false), 1000)
     }
@@ -49,7 +58,7 @@ function Matematik(props: {
 
         <p>Om <span className="primary">arean</span> på kvadraten
           är <strong>36</strong> kvadratcentimeter, hur många centimeter
-          är <span className="secondary">sidan</span> kvadraten?</p>
+          är <span className="secondary">sidan</span> på kvadraten?</p>
         <div className="buttonControls">
           <div className="numButtons">
             <button className="button" onClick={() => setNumber(number - 1)}><span className="material-symbols-outlined">

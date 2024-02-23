@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
 function Programmering(props: {
@@ -9,8 +9,19 @@ function Programmering(props: {
   const navigate = useNavigate()
   const [number, setNumber] = useState(0);
   const [color, setColor] = useState(false)
+  const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    const clicks = localStorage.getItem('programmeringClicks')
+    if (clicks) {
+      setCount(parseInt(clicks))
+    }
+  }, []);
+  
   const handleClick = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+    localStorage.setItem('programmeringClicks', newCount.toString());
     if (number === 9) {
       props.triggerTransition()
       props.triggerConfetti()
@@ -19,8 +30,6 @@ function Programmering(props: {
         navigate('/fysik')
       }, 3000);
     } else {
-      const wrongCount = localStorage.getItem('programmeringQuestion') || '0'
-      localStorage.setItem('programmeringQuestion', (parseInt(wrongCount) + 1).toString());
       setColor(true)
       setTimeout(() => setColor(false), 1000)
     }
@@ -31,7 +40,7 @@ function Programmering(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          Snyggt jobbat, nu är det dags för lite
+          <p>Det är inte så att det här börjar kännas som en skoldag?</p>
         </div>
         <h1 className='tertiary'>Programmering</h1>
         <p>Vi gillar att skapa på teknikprogrammet och kod är ett av de verktyg

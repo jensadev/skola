@@ -16,8 +16,10 @@ function Win(props: {
       props.triggerConfetti({ emojis: ['🦄'], confettiRadius: 100, confettiNumber: 30, emojiSize: 100 })
       setName(name);
 
-      const timestamp = new Date().getTime();
-      localStorage.setItem('endTimestamp', timestamp.toString());
+      if (!localStorage.getItem('endTimestamp')) {
+        const timestamp = new Date().getTime();
+        localStorage.setItem('endTimestamp', timestamp.toString());
+      }
     }
 
     const intervalId = setInterval(() => {
@@ -33,28 +35,29 @@ function Win(props: {
     name,
     startTime: localStorage.getItem('startTimestamp') || '0',
     endTime: localStorage.getItem('endTimestamp') || '0',
+    completionTime: (parseInt(localStorage.getItem('endTimestamp') || '0') - parseInt(localStorage.getItem('startTimestamp') || '0')) / 1000,
     start: {
-      guesses: localStorage.getItem('startClicks') || '0',
+      guesses: parseInt(localStorage.getItem('startClicks') || '0'),
       timestamp: localStorage.getItem('startTimestamp') || '0'
     },
     kemi: {
-      guesses: localStorage.getItem('kemiQuestion') || '0',
+      guesses: parseInt(localStorage.getItem('kemiClicks') || '0'),
       timestamp: localStorage.getItem('kemiTimestamp') || '0'
     },
     matte: {
-      guesses: localStorage.getItem('matteQuestion') || '0',
+      guesses: parseInt(localStorage.getItem('matteClicks') || '0'),
       timestamp: localStorage.getItem('matteTimestamp') || '0'
     },
     programmering: {
-      guesses: localStorage.getItem('programmeringQuestion') || '0',
+      guesses: parseInt(localStorage.getItem('programmeringClicks') || '0'),
       timestamp: localStorage.getItem('programmeringTimestamp') || '0'
     },
     fysik: {
-      guesses: localStorage.getItem('fysikQuestion') || '0',
+      guesses: parseInt(localStorage.getItem('fysikClicks') || '0'),
       timestamp: localStorage.getItem('fysikTimestamp') || '0'
     },
     webb: {
-      guesses: localStorage.getItem('webbQuestion') || '0',
+      guesses: parseInt(localStorage.getItem('webbClicks') || '0'),
       timestamp: localStorage.getItem('webbTimestamp') || '0'
     }
   }
@@ -67,13 +70,22 @@ function Win(props: {
         <div className="intro">
           Du gjorde det!
         </div>
-        <h1>Grattis <span className="primary">{ scoreCard.name }</span></h1>
-        <p>På riktigt, bra jobbat</p>
+        <h1>Grattis <span className="primary name">{scoreCard.name}</span></h1>
+        <p>På riktigt, bra jobbat, du förtjänar enhörningar.</p>
       </header>
       <section className="region flow">
-        <h2>Så hur gick det för dig?</h2>
-
-        
+        <h2 className='tertiary'>Så hur gick det för dig?</h2>
+        <ul className='scorecard'>
+          <li>Du började: {new Date(parseInt(scoreCard.startTime)).toLocaleString()}</li>
+          <li>och gick i mål: {new Date(parseInt(scoreCard.endTime)).toLocaleString()}</li>
+          <li>Det tog dig: {Math.round(scoreCard.completionTime)} sekunder eller {Math.round(scoreCard.completionTime / 60)} minuter</li>
+          <li className={scoreCard.start.timestamp ? 'green' : 'red'}>Antal gissningar på start: {scoreCard.start.guesses}</li>
+          <li className={scoreCard.kemi.timestamp ? 'green' : 'red'}>Antal gissningar på kemi: {scoreCard.kemi.guesses}</li>
+          <li className={scoreCard.matte.timestamp ? 'green' : 'red'}>Antal gissningar på matte: {scoreCard.matte.guesses}</li>
+          <li className={scoreCard.programmering.timestamp ? 'green' : 'red'}>Antal gissningar på programmering: {scoreCard.programmering.guesses}</li>
+          <li className={scoreCard.fysik.timestamp ? 'green' : 'red'}>Antal gissningar på fysik: {scoreCard.fysik.guesses}</li>
+          <li className={scoreCard.webb.timestamp ? 'green' : 'red'}>Antal gissningar på webb: {scoreCard.webb.guesses}</li>
+        </ul>
       </section>
     </main>
   )

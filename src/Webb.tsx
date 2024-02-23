@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
@@ -8,11 +8,24 @@ function Webb(props: {
 }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    const clicks = localStorage.getItem('webbClicks')
+    if (clicks) {
+      setCount(parseInt(clicks))
+    }
+  }, []);
 
   useEffect(
     () => {
       const params = new URLSearchParams(location.search);
       const name = params.get('namn');
+      if(name) {
+        const newCount = count + 1;
+        setCount(newCount);
+        localStorage.setItem('webbClicks', newCount.toString());
+      }
       if (name && name.length > 2 && /^[a-zA-Z]+$/.test(name)) {
         props.triggerTransition()
         props.triggerConfetti()
@@ -21,11 +34,9 @@ function Webb(props: {
           navigate('/end?namn=' + name)
         }, 3000);
       } else {
-        const wrongCount = localStorage.getItem('webbQuestion') || '0'
-        localStorage.setItem('webbQuestion', (parseInt(wrongCount) + 1).toString());
         props.triggerConfetti({ emojis: ['👿', '😭', '😡'], confettiRadius: 40, confettiNumber: 1, emojiSize: 100 })
       }
-    }, [location, navigate, props]);
+    }, [location, navigate, props, count]);
 
   return (
     <main className="wrapper">

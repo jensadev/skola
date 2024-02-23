@@ -5,13 +5,17 @@ import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 function Start(props: { 
   triggerConfetti: () => void, 
   triggerTransition: () => void }) {
-  const [count, setCount] = useState(0)
-  const navigate = useNavigate()
-  const [colorText, setColorText] = useState(false)
+    const navigate = useNavigate()
+    const [colorText, setColorText] = useState(false)
+    const [count, setCount] = useState(0)
 
   useEffect(() => {
     const timestamp = new Date().getTime();
-    localStorage.setItem('startTimestamp', timestamp.toString());
+    const clicks = localStorage.getItem('startClicks')
+    if (clicks) {
+      setCount(parseInt(clicks))
+    }
+    localStorage.setItem('startTimestamp', timestamp.toString())
   }, []);
 
   const handleButtonClick = () => {

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
 function Kemi(props: { 
@@ -7,8 +7,20 @@ function Kemi(props: {
   triggerTransition: () => void }) {
   const navigate = useNavigate()
   const [colorText, setColorText] = useState(false)
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const clicks = localStorage.getItem('kemiClicks')
+    if (clicks) {
+      setCount(parseInt(clicks))
+    }
+  }, []);
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    const newCount = count + 1;
+    setCount(newCount);
+    localStorage.setItem('kemiClicks', newCount.toString());
+
     const correctAnswer = 'Energi + Koldioxid + Vatten';
     if ((event.target as HTMLElement).innerText === correctAnswer) {
       props.triggerTransition()
@@ -18,8 +30,6 @@ function Kemi(props: {
         navigate('/matematik')
       }, 3000)
     } else {
-      const wrongCount = localStorage.getItem('kemiQuestion') || '0'
-      localStorage.setItem('kemiQuestion', (parseInt(wrongCount) + 1).toString());
       setColorText(true)
       setTimeout(() => setColorText(false), 1000)
     }
@@ -36,7 +46,7 @@ function Kemi(props: {
         <p>På teknikprogrammet läser du kursen Kemi i årskurs ett. Syftet med kursen är att du ska få en inblick om hur miljö, klimat, människa och naturens processer fungerar.</p>
       </header>
       <section className="region flow">
-        <h2>Förbränning <span className="material-symbols-outlined tertiary">local_fire_department</span>av <span className="primary">organiska föreningar</span></h2>
+        <h2>Förbränning <span className="material-symbols-outlined tertiary">local_fire_department</span> av<span className="primary"> organiska föreningar</span></h2>
         <p>Vad ger förbränningen av organiska föreningar huvudsakligen?</p>
         <div className="kemi">
           <ul className='kemi-list center'>

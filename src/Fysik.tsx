@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import torget from './assets/torget.png'
 import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
@@ -10,8 +10,19 @@ function Fysik(props: {
   const navigate = useNavigate()
   const [distance, setDistance] = useState(0)
   const [color, setColor] = useState(false)
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const clicks = localStorage.getItem('fysikClicks')
+    if (clicks) {
+      setCount(parseInt(clicks))
+    }
+  }, []);
 
   const handleClick = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+    localStorage.setItem('fysikClicks', newCount.toString());
     if (distance === 68) {
       props.triggerTransition()
       props.triggerConfetti()
@@ -20,8 +31,6 @@ function Fysik(props: {
         navigate('/webbutveckling');
       }, 3000);
     } else {
-      const wrongCount = localStorage.getItem('fysikQuestion') || '0'
-      localStorage.setItem('fysikQuestion', (parseInt(wrongCount) + 1).toString());
       setColor(true)
       setTimeout(() => setColor(false), 1000)
     }
@@ -32,7 +41,7 @@ function Fysik(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          Snyggt jobbat, nu är det dags för lite
+          <p>De flesta av de här problemen är hämtade från åttonde klass, jag hoppas det inte är för svårt.</p>
         </div>
         <h1 className='secondary'>Fysik</h1>
         <p>Fysik är grunden för teknik och ingenjörskonst. Den ger oss en förståelse
@@ -54,7 +63,7 @@ function Fysik(props: {
           färdats <span className="spoiler">
             340 * 0.4 = 136 meter
           </span>.</p>
-        <div className="flow">
+        <div className="flow fysik-form">
           <label htmlFor='distance'>Hur många meter är det mellan Rådhuset och skolan?</label>
           <input id="distance" name="distance" type="number" placeholder="00" onChange={(e) => setDistance(Number(e.target.value))} />
           <button

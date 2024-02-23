@@ -48,6 +48,22 @@
 
   --gutter: var(--space-s-m);
 }
+.name {
+  text-transform: capitalize;
+}
+
+.fysik-form {
+  gap: var(--gutter);
+  display: flex;
+  flex-direction: column;
+}
+
+.scorecard {
+  border: 1px solid #646cff;
+  border-radius: 8px;
+  list-style: none;
+  padding: var(--space-s);
+}
 
 a {
   font-weight: 500;
@@ -231,8 +247,13 @@ p {
 }
 
 .red {
-  color: red;
+ color: hsl(0, 78%, 70%);
 }
+
+.green {
+  color: hsl(135, 78%, 70%);
+}
+
 
 .hidden {
   display: none;
