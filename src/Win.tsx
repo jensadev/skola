@@ -89,7 +89,7 @@ function Win(props: {
               <li>När det kommer till matten så tog det dig <span className="green">{scoreCard.matte.guesses}</span> gissningar innan du prickade rätt.</li>
               <li>Det där med iteration kan vara svårt, men det tog dig <span className="green">{scoreCard.programmering.guesses}</span> gissningar att komma på det.</li>
               <li>De flesta reser inte dubbla sträckan bara för nöjes skull, som ekot. Du behövde <span className="green">{scoreCard.fysik.guesses}</span> försök för att studsa rätt.</li>
-              <li >Den här sista var riktigt klurig, du behövde <span className="green">{scoreCard.webb.guesses}</span> försök för att skriva en korrekt query parameter.</li>
+              <li >Den här sista var riktigt klurig, du behövde <span className="green">{scoreCard.webb.guesses - 1}</span> försök för att skriva en korrekt query parameter.</li>
               <li>Du klickade också checkboxen på startsidan <span className="green">{scoreCard.landingClicks}</span> gånger {scoreCard.landingClicks > 0 ? ', oklart varför' : ''}.</li>
             </> : <li className='red'>Det verkar som att du inte har klarat av alla momenten, fiskigt.</li>}
         </ul>
