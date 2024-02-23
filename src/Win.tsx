@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
 function Win(props: {
   triggerConfetti: (options?: object) => void,
@@ -28,8 +29,54 @@ function Win(props: {
     };
   }, [location, props]);
 
+  const scoreCard = {
+    name,
+    startTime: localStorage.getItem('startTimestamp') || '0',
+    endTime: localStorage.getItem('endTimestamp') || '0',
+    start: {
+      guesses: localStorage.getItem('startClicks') || '0',
+      timestamp: localStorage.getItem('startTimestamp') || '0'
+    },
+    kemi: {
+      guesses: localStorage.getItem('kemiQuestion') || '0',
+      timestamp: localStorage.getItem('kemiTimestamp') || '0'
+    },
+    matte: {
+      guesses: localStorage.getItem('matteQuestion') || '0',
+      timestamp: localStorage.getItem('matteTimestamp') || '0'
+    },
+    programmering: {
+      guesses: localStorage.getItem('programmeringQuestion') || '0',
+      timestamp: localStorage.getItem('programmeringTimestamp') || '0'
+    },
+    fysik: {
+      guesses: localStorage.getItem('fysikQuestion') || '0',
+      timestamp: localStorage.getItem('fysikTimestamp') || '0'
+    },
+    webb: {
+      guesses: localStorage.getItem('webbQuestion') || '0',
+      timestamp: localStorage.getItem('webbTimestamp') || '0'
+    }
+  }
 
-  return <main className='wrapper'>The end for {name}!</main>;
+
+  return (
+    <main className="wrapper">
+      <ScrollToTopOnMount />
+      <header className="hero region flow">
+        <div className="intro">
+          Du gjorde det!
+        </div>
+        <h1>Grattis <span className="primary">{ scoreCard.name }</span></h1>
+        <p>På riktigt, bra jobbat</p>
+      </header>
+      <section className="region flow">
+        <h2>Så hur gick det för dig?</h2>
+
+        
+      </section>
+    </main>
+  )
 }
 
 export default Win

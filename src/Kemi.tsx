@@ -13,6 +13,7 @@ function Kemi(props: {
     if ((event.target as HTMLElement).innerText === correctAnswer) {
       props.triggerTransition()
       props.triggerConfetti()
+      localStorage.setItem('kemiTimestamp', new Date().getTime().toString())
       setTimeout(() => {
         navigate('/matematik')
       }, 3000)

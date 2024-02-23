@@ -14,6 +14,7 @@ function Matematik(props: {
     if (number === 6) {
       props.triggerTransition()
       props.triggerConfetti()
+      localStorage.setItem('matteTimestamp', new Date().getTime().toString())
       setTimeout(() => {
         navigate('/programmering')
       }, 3000);

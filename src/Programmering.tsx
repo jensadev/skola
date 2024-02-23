@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
 function Programmering(props: {
   triggerConfetti: () => void,
@@ -13,6 +14,7 @@ function Programmering(props: {
     if (number === 9) {
       props.triggerTransition()
       props.triggerConfetti()
+      localStorage.setItem('programmeringTimestamp', new Date().getTime().toString())
       setTimeout(() => {
         navigate('/fysik')
       }, 3000);
@@ -26,6 +28,7 @@ function Programmering(props: {
 
   return (
     <main className="wrapper">
+      <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
           Snyggt jobbat, nu är det dags för lite

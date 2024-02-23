@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import torget from './assets/torget.png'
+import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
 function Fysik(props: {
   triggerConfetti: () => void,
@@ -14,6 +15,7 @@ function Fysik(props: {
     if (distance === 68) {
       props.triggerTransition()
       props.triggerConfetti()
+      localStorage.setItem('fysikTimestamp', new Date().getTime().toString())
       setTimeout(() => {
         navigate('/webbutveckling');
       }, 3000);
@@ -27,6 +29,7 @@ function Fysik(props: {
 
   return (
     <main className="wrapper">
+      <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
           Snyggt jobbat, nu är det dags för lite

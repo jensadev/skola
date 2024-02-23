@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import ScrollToTopOnMount from './components/ScrollToTopOnMount'
 
-function Webb(props: { 
+function Webb(props: {
   triggerConfetti: (options?: object) => void,
-  triggerTransition: () => void }) {
+  triggerTransition: () => void
+}) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -14,6 +16,7 @@ function Webb(props: {
       if (name && name.length > 2 && /^[a-zA-Z]+$/.test(name)) {
         props.triggerTransition()
         props.triggerConfetti()
+        localStorage.setItem('webbTimestamp', new Date().getTime().toString())
         setTimeout(() => {
           navigate('/end?namn=' + name)
         }, 3000);
@@ -26,6 +29,7 @@ function Webb(props: {
 
   return (
     <main className="wrapper">
+      <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
           Nu är du nästan i mål, du ska bara...
