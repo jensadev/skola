@@ -61,7 +61,7 @@ function Kemi(props: {
             <li><span className="material-symbols-outlined">add</span></li>
             <li>Syre <span className="material-symbols-outlined">spo2</span></li>
           </ul>
-          <div className="center-bounce region">
+          <div className="center bounce region">
             <span
               style={{ color: colorText ? 'red' : 'initial' }}
               className="material-symbols-outlined">

@@ -35,7 +35,7 @@ function Webb(props: {
           setShake(false)
         }, 1000)
       }
-    }, [location])
+    }, [location, navigate, props])
 
   return (
     <main className="wrapper">

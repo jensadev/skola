@@ -33,7 +33,7 @@ function Landing() {
         <h2>Vad är detta för <span className="primary">något</span> då?</h2>
         <p>Det här är en webbsida skapad för att visa lite vad vi gör på teknikprogrammet.</p>
         <p>Sidan består av ett antal utmaningar kopplade till olika ämnen på programmet. Du behöver klara utmaningen för att komma vidare mot målet.</p>
-        <div className="center-bounce region">
+        <div className="center bounce region">
           <span className="material-symbols-outlined tertiary">
             arrow_downward
           </span>

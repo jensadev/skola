@@ -208,14 +208,16 @@ p {
   z-index: -1;
 }
 
-.center-bounce {
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1em;
-  animation: bounce 1s infinite;
-
   --region-space: var(--space-s-m);
+}
+
+.bounce {
+  animation: bounce 1s infinite;
 }
 
 @keyframes bounce {

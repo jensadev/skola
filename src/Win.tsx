@@ -74,7 +74,7 @@ function Win(props: {
         <div className="intro">
           <p>Du är en stjärna ⭐</p>
         </div>
-        <h1>Grattis <span className="primary name">{scoreCard.name}</span>!</h1>
+        <h1 className='bounce'>Grattis <span className="primary name">{scoreCard.name}</span>!</h1>
         <p>På riktigt, bra jobbat, du förtjänar enhörningar 🦄</p>
       </header>
       <section className="region flow">
