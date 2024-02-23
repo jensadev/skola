@@ -22,7 +22,7 @@
 .kvadrat {
   position: relative;
   border: 4px solid #646cff;
-  width: 20vw;
+  width: 30vw;
   height: auto;
   aspect-ratio: 1;
 }
