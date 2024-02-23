@@ -44,6 +44,7 @@ function Landing() {
       </section>
       <footer className="region">
         <p>Tack till <span className="secondary">Te23</span> för test av den här sidan.</p>
+        <p>Om du är nyfiken på hur den här sidan är byggd så hittar du koden på <a href="https://github.com/jensadev/skola" target="_blank">GitHub</a>.</p>
       </footer>
 
     </main>
