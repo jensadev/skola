@@ -46,19 +46,15 @@ function Fysik(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          <p>De flesta av de här problemen är hämtade från åttonde klass, jag hoppas det inte är för svårt.</p>
+          <p>Du är nästan där, men först</p>
         </div>
         <h1 className='secondary'>Fysik</h1>
-        <p>Fysik är grunden för teknik och ingenjörskonst. Den ger oss en förståelse
-          för hur universum fungerar och de lagar som styr det. Denna kunskap är
-          avgörande för att utveckla nya tekniker och lösa tekniska problem.</p>
+        <p>Fysik är grunden för teknik och ingenjörskonst. Den ger oss en förståelse för hur universum fungerar och de lagar som styr det, vilket är avgörande för att utveckla nya tekniker och lösa tekniska problem.</p>
+        <p>På teknikprogrammet läser de flesta elever en kurs i fysik, medan de som vill bli ingenjörer även läser Fysik 2. Fysik är viktigt för yrken som civilingenjör, forskare, teknisk konsult och arkitekt.</p>
       </header>
       <section className={`region flow ${shake ? 'shake' : ''}`}>
-        <h2>Eko och <span className="primary">avstånd</span></h2>
-        <p>Traditionsenligt firar vi på NTI Gymnasiet Umeå studenten med en middag
-          på resturang Rex. Resturangen ligger i Rådhuset. Rådhuset ligger på
-          andra sidan Rådhustorget, mitt emot skolan.
-        </p>
+      <h2>Eko och <span className="primary">avstånd</span></h2>
+      <p>Traditionsenligt firar vi på NTI Gymnasiet Umeå studenten med en middag på restaurang Rex, som ligger i Rådhuset. Rådhuset, ritat av arkitekten Fredrik Olaus Lindström och färdigställt 1890, ligger på andra sidan Rådhustorget, mitt emot skolan.</p>
         <img className="torg" src={torget} alt="Bild på torget" />
         <p>Om du står och <strong>skriker</strong> från skolan till någon vid Rådhuset så
           hör du <span className="tertiary">ekot</span> av ditt skrik efter cirka 0.4 sekunder

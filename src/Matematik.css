@@ -4,19 +4,26 @@
   place-items: center;
 }
 
+.left, .bottom {
+  display: block;
+  background-color: var(--color-dark);
+  aspect-ratio: 1;
+  padding: var(--space-2xs);
+  line-height: 1;
+}
+
 .left {
   position: absolute;
-  left: 0;
+  left: -1.5ch;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .bottom {
   position: absolute;
-  bottom: 0;
+  bottom: -1.5ch;
   left: 50%;
   transform: translateX(-50%);
-  
 }
 
 .kvadrat {

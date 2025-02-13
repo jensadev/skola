@@ -28,10 +28,11 @@ function Landing() {
         </div>
         <h1><span className="secondary">Hej</span> och välkommen</h1>
         <p>Kul att du har valt att besöka oss på <a href="https://ntigymnasiet.se/umea/" target="_blank">NTI Gymnasiet Umeå</a> idag.</p>
+        <p>Vi är den lilla skolan i centrum för dig som gillar en trygg och trevlig miljö.</p>
       </header>
       <section className="region flow">
         <h2>Vad är detta för <span className="primary">något</span> då?</h2>
-        <p>Det här är en webbsida skapad för att visa lite vad vi gör på teknikprogrammet.</p>
+        <p>Det här är en webbsida/app skapad för att visa lite vad vi gör på teknikprogrammet.</p>
         <p>Sidan består av ett antal utmaningar kopplade till olika ämnen på programmet. Du behöver klara utmaningen för att komma vidare mot målet.</p>
         <div className="center bounce region">
           <span className="material-symbols-outlined tertiary">

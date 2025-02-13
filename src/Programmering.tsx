@@ -18,7 +18,7 @@ function Programmering(props: {
       setCount(parseInt(clicks))
     }
   }, []);
-  
+
   const handleClick = () => {
     const newCount = count + 1;
     setCount(newCount);
@@ -45,20 +45,16 @@ function Programmering(props: {
       <ScrollToTopOnMount />
       <header className="hero region flow">
         <div className="intro">
-          <p>Det är inte så att det här börjar kännas som en skoldag?</p>
+          <p>Problemlösning kommer i olika former, bland annat...</p>
         </div>
         <h1 className='tertiary'>Programmering</h1>
-        <p>Vi gillar att skapa på teknikprogrammet och kod är ett av de verktyg
-          du får lära dig för att skapa.
-        </p>
+        <p>På teknikprogrammet älskar vi att skapa, och kod är ett av de verktyg du får lära dig för att skapa. Genom att lära dig programmering utvecklar du färdigheter som är avgörande för många tekniska yrken.</p>
+        <p>Programmering är en central del av teknikprogrammet och förbereder dig för yrken som programmerare, systemutvecklare, spelutvecklare och IT-konsult. Dessa yrken kräver kunskap i att skriva, testa och underhålla kod för att utveckla programvaror och applikationer.</p>
       </header>
       <section className={`region flow ${shake ? 'shake' : ''}`}>
         <h2>Upprepning, <span className="secondary">loopa</span>, iteration</h2>
-        <p>Att kunna upprepa något ett visst antal gånger är en av grunderna i
-          programmering. Det är så användbart i allt (upprepa vadsomhelst X gånger,
-          gå igenom en lista, räkna upp, och ned (inte upp och ned)).
-        </p>
-        <p>Här nedan är ett exempel på en <span className="secondary">for-loop</span>. Innan loopen så initieras (skapas) en variabel med namnet <span className="primary">final</span>.</p>
+        <p>Programmering handlar mycket om att kunna upprepa saker, och det är en av de mest användbara färdigheterna du kan lära dig. Från att gå igenom listor till att räkna upp och ned, datorn gör det med en hastighet och precision som är svår att slå.</p>
+        <p>Här nedan är ett exempel på en <span className="secondary">for-loop</span>. Innan loopen så skapas en variabel med namnet <span className="primary">final</span>.</p>
         <pre>
           <code>
             {`let final
@@ -85,7 +81,7 @@ for (let i = 0; i < 10; i++) {
             className={color ? 'button red' : 'button'}
             onClick={handleClick}>Gissa</button>
         </div>
-        <p>Tips för dig som inte har programmerat så mycket, <span className="secondary">loopen</span> styrs av ett villkor, i det här fallet när <code>i</code> är mindre än <code>10</code>.</p>
+        <p>Tips: <span className="secondary">loopen</span> styrs av ett villkor, i det här fallet när <code>i</code> är mindre än <code>10</code>.</p>
       </section>
     </main>
   )

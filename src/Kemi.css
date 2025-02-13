@@ -1,0 +1,28 @@
+
+.kemi {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}
+  
+  
+.kemi > * {
+    padding: var(--space-s);
+}
+
+  
+.kemi-list {
+    list-style: none;
+    font-size: var(--step-2);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    li {
+        display: grid;
+        place-items: center;
+        min-width: 8ch;
+    }
+  }
+  

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState , useEffect} from 'react'
 import ScrollToTopOnMount from './components/ScrollToTopOnMount'
+import './Kemi.css'
 
 function Kemi(props: { 
   triggerConfetti: () => void, 
@@ -48,13 +49,13 @@ function Kemi(props: {
           Snyggt jobbat, ett ämne du känner till från åttan är
         </div>
         <h1 className='secondary'>Kemi</h1>
-        <p>På teknikprogrammet läser du kursen Kemi i årskurs ett. Syftet med kursen är att du ska få en inblick om hur miljö, klimat, människa och naturens processer fungerar.</p>
+        <p>På teknikprogrammet läser du kursen Kemi i årskurs ett. Syftet med ämnet kemi är att ge insikt i miljö, klimat, människa och naturens processer genom att utveckla kunskap om kemiska begrepp, modeller, teorier och metoder.</p><p> På teknikprogrammet läser du kemi för att förstå tekniska processer, främja hållbar utveckling och förbereda dig för yrken som ingenjör, livsmedelstekniker och underhållsmekaniker.</p>
       </header>
       <section className={`region flow ${shake ? 'shake' : ''}`}>
-        <h2>Förbränning <span className="material-symbols-outlined tertiary">local_fire_department</span> av<span className="primary"> organiska </span>föreningar</h2>
+        <h2><span className="material-symbols-outlined tertiary icon-large">local_fire_department</span> Förbränning av<span className="primary"> organiska </span>föreningar</h2>
         <p>Vad ger förbränningen av organiska föreningar huvudsakligen?</p>
         <div className="kemi">
-          <ul className='kemi-list center'>
+          <ul className='kemi-list'>
             <li>
               Kolväte <span className="material-symbols-outlined">forest</span>
             </li>

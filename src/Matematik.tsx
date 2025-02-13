@@ -50,11 +50,9 @@ function Matematik(props: {
           <p>Det här går som ett <span className="primary">räkneverk</span>!</p>
         </div>
         <h1>Matematik</h1>
-        <p>Det är en fördel om du åtminstone tycker att matematik är okej när du läser
-          teknikprogrammet. Det går nog till och med att säga att det är bra om
-          du gillar matematik.</p>
-        <p>Teknikprogrammet innehåller nämligen minst <span className="tertiary">tre</span> kurser
-          i matematik. </p>
+        <p>På teknikprogrammet får du möjlighet att lära dig mer om matematik. Programmet innehåller minst <span className="tertiary">tre</span> kurser i matematik, vilket ger dig en solid grund för vidare studier och yrkesliv.</p>
+        <p>Jämfört med ekonomiprogrammet, som också har tre kurser i matematik, fokuserar teknikprogrammets matematik mer på tekniska och naturvetenskapliga tillämpningar, medan ekonomiprogrammet betonar ekonomiska och finansiella aspekter.</p>
+        <p>Matematik är viktigt på teknikprogrammet för att utveckla problemlösningsförmåga och analytiskt tänkande, vilket är avgörande för yrken som ingenjör, analytiker och statistiker</p>
       </header>
       <section className={`region flow ${shake ? 'shake' : ''}`}>
         <h2><span className="secondary">Kvadrater</span> och area</h2>
@@ -64,8 +62,8 @@ function Matematik(props: {
 
         <div className="kvadrat-container">
           <div className="kvadrat">
-            <span className='left'>x</span>
-            <span className='bottom'>x</span>
+            <span className='left'>X</span>
+            <span className='bottom'>X</span>
           </div>
         </div>
 

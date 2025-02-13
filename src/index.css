@@ -3,9 +3,12 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --color-dark: #242424;
+  --color-light:  rgba(255, 255, 255, 0.87);
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-light);
+  background-color: var(--color-dark);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -82,12 +85,14 @@ body {
   font-size: var(--step-1);
   line-height: 1.5;
   font-weight: 400;
+  word-wrap: pretty;
 }
 
 h1, h2, h3, h4 {
   line-height: 1;
   font-weight: 700;
-  text-wrap: stable; 
+  text-wrap: stable;
+  word-wrap: break-word;
 }
 
 h1 {
@@ -273,21 +278,6 @@ p {
   place-items: center;
 }
 
-.kemi {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-s);
-}
-
-.kemi > div {
-  display: grid;
-  place-items: center;
-}
-
-.kemi > * {
-  padding: var(--space-s);
-}
-
 .box {
   display: grid;
   place-items: center;
@@ -362,11 +352,6 @@ p {
   place-items: center;
 }
 
-.kemi-list {
-  list-style: none;
-  font-size: var(--step-2);
-}
-
 .shake {
   animation: shake 0.3s;
 }
@@ -387,4 +372,8 @@ p {
   100% {
     transform: translateX(0);
   }
+}
+
+.icon-large {
+  font-size: 1em;
 }
